@@ -34,22 +34,22 @@ const TooltipDocs = () => {
       <h2>Usage</h2>
       <CodeBlock
         code={`import {
-  Tooltip,
-  TooltipTrigger,
-  TooltipContent,
-  TooltipProvider,
+  H8Tooltip,
+  H8TooltipTrigger,
+  H8TooltipContent,
+  H8TooltipProvider,
 } from '@/components/hash8-ui'
 
 export function Example() {
   return (
-    <TooltipProvider>
-      <Tooltip>
-        <TooltipTrigger>Hover</TooltipTrigger>
-        <TooltipContent>
+    <H8TooltipProvider>
+      <H8Tooltip>
+        <H8TooltipTrigger>Hover</H8TooltipTrigger>
+        <H8TooltipContent>
           <p>Tooltip content</p>
-        </TooltipContent>
-      </Tooltip>
-    </TooltipProvider>
+        </H8TooltipContent>
+      </H8Tooltip>
+    </H8TooltipProvider>
   )
 }`}
       />
@@ -95,6 +95,19 @@ export function Example() {
           </div>
         </TooltipProvider>
       </ComponentPreview>
+      <CodeBlock
+        code={`<H8TooltipProvider>
+  <H8Tooltip>
+    <H8TooltipTrigger asChild>
+      <H8Button variant="outline" size="sm">Top</H8Button>
+    </H8TooltipTrigger>
+    <H8TooltipContent side="top">
+      <p>Top tooltip</p>
+    </H8TooltipContent>
+  </H8Tooltip>
+  {/* ... other positions */}
+</H8TooltipProvider>`}
+      />
 
       <h2>Components</h2>
       <div className="overflow-x-auto">
@@ -107,19 +120,19 @@ export function Example() {
           </thead>
           <tbody>
             <tr className="border-b">
-              <td className="py-2"><code>TooltipProvider</code></td>
+              <td className="py-2"><code>H8TooltipProvider</code></td>
               <td className="py-2 text-muted-foreground">Wraps your app to provide tooltip context</td>
             </tr>
             <tr className="border-b">
-              <td className="py-2"><code>Tooltip</code></td>
+              <td className="py-2"><code>H8Tooltip</code></td>
               <td className="py-2 text-muted-foreground">The root component</td>
             </tr>
             <tr className="border-b">
-              <td className="py-2"><code>TooltipTrigger</code></td>
+              <td className="py-2"><code>H8TooltipTrigger</code></td>
               <td className="py-2 text-muted-foreground">The element that triggers the tooltip</td>
             </tr>
             <tr className="border-b">
-              <td className="py-2"><code>TooltipContent</code></td>
+              <td className="py-2"><code>H8TooltipContent</code></td>
               <td className="py-2 text-muted-foreground">The tooltip content</td>
             </tr>
           </tbody>
@@ -127,7 +140,7 @@ export function Example() {
       </div>
 
       <h2>Props</h2>
-      <h3>TooltipContent</h3>
+      <h3>H8TooltipContent</h3>
       <div className="overflow-x-auto">
         <table className="w-full text-sm">
           <thead>

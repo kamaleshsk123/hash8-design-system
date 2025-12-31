@@ -57,30 +57,30 @@ const DialogDocs = () => {
       <h2>Usage</h2>
       <CodeBlock
         code={`import {
-  Dialog,
-  DialogTrigger,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogDescription,
-  DialogFooter,
+  H8Dialog,
+  H8DialogTrigger,
+  H8DialogContent,
+  H8DialogHeader,
+  H8DialogTitle,
+  H8DialogDescription,
+  H8DialogFooter,
 } from '@/components/hash8-ui'
 
 export function Example() {
   return (
-    <Dialog>
-      <DialogTrigger>Open</DialogTrigger>
-      <DialogContent>
-        <DialogHeader>
-          <DialogTitle>Title</DialogTitle>
-          <DialogDescription>Description</DialogDescription>
-        </DialogHeader>
+    <H8Dialog>
+      <H8DialogTrigger>Open</H8DialogTrigger>
+      <H8DialogContent>
+        <H8DialogHeader>
+          <H8DialogTitle>Title</H8DialogTitle>
+          <H8DialogDescription>Description</H8DialogDescription>
+        </H8DialogHeader>
         <p>Content</p>
-        <DialogFooter>
-          <Button>Save</Button>
-        </DialogFooter>
-      </DialogContent>
-    </Dialog>
+        <H8DialogFooter>
+          <H8Button>Save</H8Button>
+        </H8DialogFooter>
+      </H8DialogContent>
+    </H8Dialog>
   )
 }`}
       />
@@ -107,6 +107,25 @@ export function Example() {
           </DialogContent>
         </Dialog>
       </ComponentPreview>
+      <CodeBlock
+        code={`<H8Dialog>
+  <H8DialogTrigger asChild>
+    <H8Button>Open Simple Dialog</H8Button>
+  </H8DialogTrigger>
+  <H8DialogContent>
+    <H8DialogHeader>
+      <H8DialogTitle>Are you sure?</H8DialogTitle>
+      <H8DialogDescription>
+        This action cannot be undone.
+      </H8DialogDescription>
+    </H8DialogHeader>
+    <H8DialogFooter>
+      <H8Button variant="outline">Cancel</H8Button>
+      <H8Button>Continue</H8Button>
+    </H8DialogFooter>
+  </H8DialogContent>
+</H8Dialog>`}
+      />
 
       <h2>Components</h2>
       <div className="overflow-x-auto">
@@ -119,35 +138,35 @@ export function Example() {
           </thead>
           <tbody>
             <tr className="border-b">
-              <td className="py-2"><code>Dialog</code></td>
+              <td className="py-2"><code>H8Dialog</code></td>
               <td className="py-2 text-muted-foreground">The root component</td>
             </tr>
             <tr className="border-b">
-              <td className="py-2"><code>DialogTrigger</code></td>
+              <td className="py-2"><code>H8DialogTrigger</code></td>
               <td className="py-2 text-muted-foreground">Opens the dialog</td>
             </tr>
             <tr className="border-b">
-              <td className="py-2"><code>DialogContent</code></td>
+              <td className="py-2"><code>H8DialogContent</code></td>
               <td className="py-2 text-muted-foreground">Contains the dialog content</td>
             </tr>
             <tr className="border-b">
-              <td className="py-2"><code>DialogHeader</code></td>
+              <td className="py-2"><code>H8DialogHeader</code></td>
               <td className="py-2 text-muted-foreground">Container for title and description</td>
             </tr>
             <tr className="border-b">
-              <td className="py-2"><code>DialogTitle</code></td>
+              <td className="py-2"><code>H8DialogTitle</code></td>
               <td className="py-2 text-muted-foreground">The dialog title</td>
             </tr>
             <tr className="border-b">
-              <td className="py-2"><code>DialogDescription</code></td>
+              <td className="py-2"><code>H8DialogDescription</code></td>
               <td className="py-2 text-muted-foreground">Optional description</td>
             </tr>
             <tr className="border-b">
-              <td className="py-2"><code>DialogFooter</code></td>
+              <td className="py-2"><code>H8DialogFooter</code></td>
               <td className="py-2 text-muted-foreground">Container for actions</td>
             </tr>
             <tr className="border-b">
-              <td className="py-2"><code>DialogClose</code></td>
+              <td className="py-2"><code>H8DialogClose</code></td>
               <td className="py-2 text-muted-foreground">Closes the dialog</td>
             </tr>
           </tbody>

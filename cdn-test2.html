@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./dist-standalone/hash8-ui.standalone.js"></script>
+    <script>
+        if (!window.process) window.process = { env: { NODE_ENV: 'production' } };
+    </script>
+</head>
+
+<body class="m-5">
+    <div id="root"></div>
+    <H8Badge variant="destructive">Destructive</H8Badge>
+
+
+
+    <H8Button variant="default">Click Me</H8Button>
+
+</body>
+
+</html>

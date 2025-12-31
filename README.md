@@ -1,73 +1,124 @@
-# Welcome to your Lovable project
+# Hash8 Design System
 
-## Project info
+Hash8 UI is a high-performance, accessible, and customizable design system built on top of Radix UI and Tailwind CSS. It is designed to be framework-agnostic, supporting React, Vue, Angular, Svelte, and vanilla HTML projects.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+## Features
 
-## How can I edit this code?
+- **💎 Beautifully Designed**: Minimalist, clean, and developer-focused aesthetics.
+- **♿️ Accessible**: Built on Radix UI primitives for WAI-ARIA compliance.
+- **🎨 Theming Engine**: Powerful JavaScript API for runtime theming (no CSS required).
+- **🌍 Universal Compatibility**: Works with React, Next.js, Angular, Vue, Svelte, Laravel, and more.
+- **⚡️ Plug & Play CDN**: Use directly in HTML files via our standalone bundle.
 
-There are several ways of editing your application.
+---
 
-**Use Lovable**
+## Installation
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+### Option 1: NPM (Recommended for React)
 
-Changes made via Lovable will be committed automatically to this repo.
+Install the core dependencies:
 
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+```bash
+npm install hash8-ui class-variance-authority clsx tailwind-merge lucide-react
 ```
 
-**Edit a file directly in GitHub**
+### Option 2: CDN Standalone Bundle (Any Framework)
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+For non-React frameworks (Angular, Vue, Laravel) or simple HTML pages, use our **Standalone Bundle**. It includes React, ReactDOM, and all Hash8 components pre-bundled.
 
-**Use GitHub Codespaces**
+```html
+<script src="https://unpkg.com/hash8-ui/dist-standalone/hash8-ui.standalone.js"></script>
+```
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+*(Note: Replace the URL with your local path `dist-standalone/hash8-ui.standalone.js` if hosting locally)*
 
-## What technologies are used for this project?
+---
 
-This project is built with:
+## Usage (CDN / Standalone)
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+The standalone bundle exposes a global `Hash8UI` object.
 
-## How can I deploy this project?
+### 1. Auto-Mounting HTML Tags
+You can use Hash8 components directly as custom HTML tags. Our robust **Auto-Mount** system automatically detects them (including dynamically added content) and renders them as React components.
 
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
+```html
+<H8Card>
+  <H8CardHeader>
+    <H8CardTitle>Hello World</H8CardTitle>
+  </H8CardHeader>
+  <H8CardContent>
+    <H8Button variant="default">Click Me</H8Button>
+  </H8CardContent>
+</H8Card>
+```
 
-## Can I connect a custom domain to my Lovable project?
+### 2. JavaScript Theming API
+Customize the look and feel at runtime without writing CSS.
 
-Yes, you can!
+```javascript
+// Switch to Dark Mode
+Hash8UI.H8Configure({ mode: 'dark' });
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+// Set Brand Colors & Radius
+Hash8UI.H8Configure({
+  theme: {
+    primary: '221.2 83.2% 53.3%', // HSL for Blue
+    radius: '0.5rem' // Automatically calculates sm/md/lg radii
+  }
+});
+```
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+### 3. Using React API
+Access React primitives directly for complex logic:
+
+```javascript
+const { React, ReactDOM, H8Button } = Hash8UI;
+```
+
+---
+
+## Supported Frameworks
+
+We provide first-class installation guides for:
+
+- **Next.js** (Native Support)
+- **Remix** (Native Support)
+- **Angular** (via CDN/Web Components)
+- **Nuxt / Vue** (via CDN)
+- **SvelteKit** (via CDN)
+- **Laravel** (via CDN/Blade)
+
+See the **Installation > Framework Guides** section in the documentation app for detailed instructions.
+
+---
+
+## Development
+
+To contribute or modify the library:
+
+1.  **Install dependencies**:
+    ```bash
+    npm install
+    ```
+
+2.  **Start development server**:
+    ```bash
+    npm run dev
+    ```
+
+3.  **Build Documentation & Library**:
+    ```bash
+    npm run build
+    ```
+
+4.  **Build Standalone CDN Bundle**:
+    ```bash
+    npm run build:standalone
+    ```
+    This generates `dist-standalone/hash8-ui.standalone.js`.
+
+---
+
+## License
+
+MIT © Hash8 Design System
