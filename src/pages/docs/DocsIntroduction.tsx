@@ -52,7 +52,7 @@ const DocsIntroduction = () => {
       <p>Import components from the hash8-ui directory:</p>
       <div className="code-block mt-4">
         <pre className="overflow-x-auto p-4">
-          <code>{`import { Button, Card, Input } from '@/components/hash8-ui'`}</code>
+          <code>{`import { H8Button, H8Card, H8Input } from '@/components/hash8-ui'`}</code>
         </pre>
       </div>
 

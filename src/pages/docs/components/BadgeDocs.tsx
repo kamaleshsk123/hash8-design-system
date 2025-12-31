@@ -22,10 +22,10 @@ const BadgeDocs = () => {
 
       <h2>Usage</h2>
       <CodeBlock
-        code={`import { Badge } from '@/components/hash8-ui'
+        code={`import { H8Badge } from '@/components/hash8-ui'
 
 export function Example() {
-  return <Badge>Badge</Badge>
+  return <H8Badge>Badge</H8Badge>
 }`}
       />
 
@@ -35,25 +35,25 @@ export function Example() {
       <ComponentPreview>
         <Badge>Default</Badge>
       </ComponentPreview>
-      <CodeBlock code={`<Badge>Default</Badge>`} />
+      <CodeBlock code={`<H8Badge>Default</H8Badge>`} />
 
       <h3>Secondary</h3>
       <ComponentPreview>
         <Badge variant="secondary">Secondary</Badge>
       </ComponentPreview>
-      <CodeBlock code={`<Badge variant="secondary">Secondary</Badge>`} />
+      <CodeBlock code={`<H8Badge variant="secondary">Secondary</H8Badge>`} />
 
       <h3>Outline</h3>
       <ComponentPreview>
         <Badge variant="outline">Outline</Badge>
       </ComponentPreview>
-      <CodeBlock code={`<Badge variant="outline">Outline</Badge>`} />
+      <CodeBlock code={`<H8Badge variant="outline">Outline</H8Badge>`} />
 
       <h3>Destructive</h3>
       <ComponentPreview>
         <Badge variant="destructive">Destructive</Badge>
       </ComponentPreview>
-      <CodeBlock code={`<Badge variant="destructive">Destructive</Badge>`} />
+      <CodeBlock code={`<H8Badge variant="destructive">Destructive</H8Badge>`} />
 
       <h2>Props</h2>
       <div className="overflow-x-auto">

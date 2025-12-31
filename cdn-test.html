@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hash8 UI - Single Script Demo</title>
+
+    <!-- 1. Babel for JSX -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <!-- 2. Hash8 UI Standalone Build (Includes React, ReactDOM, Styles) -->
+    <script src="./dist-standalone/hash8-ui.standalone.js"></script>
+
+    <!-- Shim process -->
+    <script>
+        if (!window.process) window.process = { env: { NODE_ENV: 'production' } };
+    </script>
+</head>
+
+<body class="bg-gray-50 min-h-screen flex items-center justify-center p-4">
+
+    <div id="root"></div>
+
+    <script type="text/babel">
+        // 1. Destructure React, ReactDOM and H8 components
+        const {
+            React,
+            ReactDOM,
+            H8Button,
+            H8Card,
+            H8CardHeader,
+            H8CardTitle,
+            H8CardContent,
+            H8Input,
+            H8Label,
+            H8Avatar,
+            H8AvatarImage,
+            H8AvatarFallback,
+            H8Badge
+        } = Hash8UI;
+
+        // 2. Make React global so Babel's compiled JSX (React.createElement) works
+        window.React = React;
+
+        const App = () => {
+            const [count, setCount] = React.useState(0);
+
+            return (
+                <div className="w-full max-w-md space-y-4 font-sans">
+                    <H8Card>
+                        <H8CardHeader>
+                            <H8CardTitle>Single Script Demo</H8CardTitle>
+                        </H8CardHeader>
+                        <H8CardContent className="space-y-4">
+                            <div className="space-y-2">
+                                <H8Label htmlFor="name">Name</H8Label>
+                                <H8Input id="name" placeholder="Enter your name" />
+                            </div>
+
+                            <div className="flex items-center gap-4">
+                                <H8Button onClick={() => setCount(c => c + 1)}>
+                                    Count is: {count}
+                                </H8Button>
+                                <H8Button variant="secondary">
+                                    Secondary
+                                </H8Button>
+                                <H8Button variant="destructive">
+                                    Destructive
+                                </H8Button>
+                            </div>
+                            <H8Avatar>
+                                <H8AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
+                                <H8AvatarFallback>JD</H8AvatarFallback>
+                            </H8Avatar>
+                            <H8Badge variant="destructive">Destructive</H8Badge>
+                            <p className="text-sm text-muted-foreground mt-4">
+                                Using <code>Hash8UI.H8Card</code> etc.
+                            </p>
+                        </H8CardContent>
+                    </H8Card>
+                </div>
+            );
+        };
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
+</body>
+
+</html>
+
+
+<!-- <p className="text-sm text-muted-foreground mt-4">
+                                Using <code>Hash8UI.H8Card</code> etc.
+                            </p> -->
