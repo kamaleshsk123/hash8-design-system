@@ -24,10 +24,10 @@ const ButtonDocs = () => {
 
       <h2>Usage</h2>
       <CodeBlock
-        code={`import { Button } from '@/components/hash8-ui'
+        code={`import { H8Button } from '@/components/hash8-ui'
 
 export function Example() {
-  return <Button>Click me</Button>
+  return <H8Button>Click me</H8Button>
 }`}
       />
 
@@ -38,37 +38,37 @@ export function Example() {
       <ComponentPreview>
         <Button>Default Button</Button>
       </ComponentPreview>
-      <CodeBlock code={`<Button>Default Button</Button>`} />
+      <CodeBlock code={`<H8Button>Default Button</H8Button>`} />
 
       <h3>Secondary</h3>
       <ComponentPreview>
         <Button variant="secondary">Secondary Button</Button>
       </ComponentPreview>
-      <CodeBlock code={`<Button variant="secondary">Secondary Button</Button>`} />
+      <CodeBlock code={`<H8Button variant="secondary">Secondary Button</H8Button>`} />
 
       <h3>Outline</h3>
       <ComponentPreview>
         <Button variant="outline">Outline Button</Button>
       </ComponentPreview>
-      <CodeBlock code={`<Button variant="outline">Outline Button</Button>`} />
+      <CodeBlock code={`<H8Button variant="outline">Outline Button</H8Button>`} />
 
       <h3>Ghost</h3>
       <ComponentPreview>
         <Button variant="ghost">Ghost Button</Button>
       </ComponentPreview>
-      <CodeBlock code={`<Button variant="ghost">Ghost Button</Button>`} />
+      <CodeBlock code={`<H8Button variant="ghost">Ghost Button</H8Button>`} />
 
       <h3>Link</h3>
       <ComponentPreview>
         <Button variant="link">Link Button</Button>
       </ComponentPreview>
-      <CodeBlock code={`<Button variant="link">Link Button</Button>`} />
+      <CodeBlock code={`<H8Button variant="link">Link Button</H8Button>`} />
 
       <h3>Destructive</h3>
       <ComponentPreview>
         <Button variant="destructive">Destructive Button</Button>
       </ComponentPreview>
-      <CodeBlock code={`<Button variant="destructive">Destructive Button</Button>`} />
+      <CodeBlock code={`<H8Button variant="destructive">Destructive Button</H8Button>`} />
 
       <h2>Sizes</h2>
       <ComponentPreview>
@@ -79,16 +79,16 @@ export function Example() {
         </div>
       </ComponentPreview>
       <CodeBlock
-        code={`<Button size="sm">Small</Button>
-<Button size="default">Default</Button>
-<Button size="lg">Large</Button>`}
+        code={`<H8Button size="sm">Small</H8Button>
+<H8Button size="default">Default</H8Button>
+<H8Button size="lg">Large</H8Button>`}
       />
 
       <h2>Disabled</h2>
       <ComponentPreview>
         <Button disabled>Disabled</Button>
       </ComponentPreview>
-      <CodeBlock code={`<Button disabled>Disabled</Button>`} />
+      <CodeBlock code={`<H8Button disabled>Disabled</H8Button>`} />
 
       <h2>Props</h2>
       <div className="overflow-x-auto">

@@ -17,10 +17,10 @@ const InputDocs = () => {
 
       <h2>Usage</h2>
       <CodeBlock
-        code={`import { Input } from '@/components/hash8-ui'
+        code={`import { H8Input } from '@/components/hash8-ui'
 
 export function Example() {
-  return <Input placeholder="Email" />
+  return <H8Input placeholder="Email" />
 }`}
       />
 
@@ -30,7 +30,7 @@ export function Example() {
       <ComponentPreview>
         <Input placeholder="Default input" className="max-w-sm" />
       </ComponentPreview>
-      <CodeBlock code={`<Input placeholder="Default input" />`} />
+      <CodeBlock code={`<H8Input placeholder="Default input" />`} />
 
       <h3>With Label</h3>
       <ComponentPreview>
@@ -46,7 +46,7 @@ export function Example() {
   <label htmlFor="email" className="text-sm font-medium">
     Email
   </label>
-  <Input type="email" id="email" placeholder="Email" />
+  <H8Input type="email" id="email" placeholder="Email" />
 </div>`}
       />
 
@@ -54,7 +54,7 @@ export function Example() {
       <ComponentPreview>
         <Input disabled placeholder="Disabled input" className="max-w-sm" />
       </ComponentPreview>
-      <CodeBlock code={`<Input disabled placeholder="Disabled input" />`} />
+      <CodeBlock code={`<H8Input disabled placeholder="Disabled input" />`} />
 
       <h3>With Type</h3>
       <ComponentPreview>
@@ -65,9 +65,9 @@ export function Example() {
         </div>
       </ComponentPreview>
       <CodeBlock
-        code={`<Input type="email" placeholder="Email" />
-<Input type="password" placeholder="Password" />
-<Input type="number" placeholder="Number" />`}
+        code={`<H8Input type="email" placeholder="Email" />
+<H8Input type="password" placeholder="Password" />
+<H8Input type="number" placeholder="Number" />`}
       />
 
       <h2>Props</h2>

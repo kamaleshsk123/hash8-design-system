@@ -28,14 +28,14 @@ const AvatarDocs = () => {
 
       <h2>Usage</h2>
       <CodeBlock
-        code={`import { Avatar, AvatarImage, AvatarFallback } from '@/components/hash8-ui'
+        code={`import { H8Avatar, H8AvatarImage, H8AvatarFallback } from '@/components/hash8-ui'
 
 export function Example() {
   return (
-    <Avatar>
-      <AvatarImage src="https://example.com/avatar.png" alt="User" />
-      <AvatarFallback>JD</AvatarFallback>
-    </Avatar>
+    <H8Avatar>
+      <H8AvatarImage src="https://example.com/avatar.png" alt="User" />
+      <H8AvatarFallback>JD</H8AvatarFallback>
+    </H8Avatar>
   )
 }`}
       />
@@ -50,10 +50,10 @@ export function Example() {
         </Avatar>
       </ComponentPreview>
       <CodeBlock
-        code={`<Avatar>
-  <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
-  <AvatarFallback>CN</AvatarFallback>
-</Avatar>`}
+        code={`<H8Avatar>
+  <H8AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
+  <H8AvatarFallback>CN</H8AvatarFallback>
+</H8Avatar>`}
       />
 
       <h3>Fallback Only</h3>
@@ -63,9 +63,9 @@ export function Example() {
         </Avatar>
       </ComponentPreview>
       <CodeBlock
-        code={`<Avatar>
-  <AvatarFallback>JD</AvatarFallback>
-</Avatar>`}
+        code={`<H8Avatar>
+  <H8AvatarFallback>JD</H8AvatarFallback>
+</H8Avatar>`}
       />
 
       <h3>Different Sizes</h3>
@@ -86,18 +86,18 @@ export function Example() {
         </div>
       </ComponentPreview>
       <CodeBlock
-        code={`<Avatar className="h-6 w-6">
-  <AvatarFallback className="text-xs">XS</AvatarFallback>
-</Avatar>
-<Avatar className="h-8 w-8">
-  <AvatarFallback className="text-xs">SM</AvatarFallback>
-</Avatar>
-<Avatar>
-  <AvatarFallback>MD</AvatarFallback>
-</Avatar>
-<Avatar className="h-14 w-14">
-  <AvatarFallback>LG</AvatarFallback>
-</Avatar>`}
+        code={`<H8Avatar className="h-6 w-6">
+  <H8AvatarFallback className="text-xs">XS</H8AvatarFallback>
+</H8Avatar>
+<H8Avatar className="h-8 w-8">
+  <H8AvatarFallback className="text-xs">SM</H8AvatarFallback>
+</H8Avatar>
+<H8Avatar>
+  <H8AvatarFallback>MD</H8AvatarFallback>
+</H8Avatar>
+<H8Avatar className="h-14 w-14">
+  <H8AvatarFallback>LG</H8AvatarFallback>
+</H8Avatar>`}
       />
 
       <h2>Components</h2>
@@ -111,15 +111,15 @@ export function Example() {
           </thead>
           <tbody>
             <tr className="border-b">
-              <td className="py-2"><code>Avatar</code></td>
+              <td className="py-2"><code>H8Avatar</code></td>
               <td className="py-2 text-muted-foreground">The avatar container</td>
             </tr>
             <tr className="border-b">
-              <td className="py-2"><code>AvatarImage</code></td>
+              <td className="py-2"><code>H8AvatarImage</code></td>
               <td className="py-2 text-muted-foreground">The image element</td>
             </tr>
             <tr className="border-b">
-              <td className="py-2"><code>AvatarFallback</code></td>
+              <td className="py-2"><code>H8AvatarFallback</code></td>
               <td className="py-2 text-muted-foreground">Fallback when image fails</td>
             </tr>
           </tbody>
