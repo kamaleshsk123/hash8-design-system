@@ -1,4 +1,5 @@
 import { CodeBlock } from "@/components/docs/CodeBlock";
+import { Link } from "react-router-dom";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 const DocsInstallation = () => {
@@ -10,22 +11,28 @@ const DocsInstallation = () => {
       </p>
 
       <Tabs defaultValue="vite" className="mt-6">
-        <TabsList className="w-full justify-start rounded-none border-b bg-transparent p-0">
+        <TabsList className="w-full justify-start rounded-none border-b bg-transparent p-0 overflow-x-auto h-auto flex-nowrap">
           <TabsTrigger
             value="vite"
-            className="relative h-10 rounded-none border-b-2 border-transparent bg-transparent px-4 pb-3 pt-2 font-semibold text-muted-foreground shadow-none transition-none data-[state=active]:border-primary data-[state=active]:text-foreground data-[state=active]:shadow-none"
+            className="relative h-10 shrink-0 rounded-none border-b-2 border-transparent bg-transparent px-4 pb-3 pt-2 font-semibold text-muted-foreground shadow-none transition-none data-[state=active]:border-primary data-[state=active]:text-foreground data-[state=active]:shadow-none"
           >
             Using Vite
           </TabsTrigger>
           <TabsTrigger
             value="postcss"
-            className="relative h-10 rounded-none border-b-2 border-transparent bg-transparent px-4 pb-3 pt-2 font-semibold text-muted-foreground shadow-none transition-none data-[state=active]:border-primary data-[state=active]:text-foreground data-[state=active]:shadow-none"
+            className="relative h-10 shrink-0 rounded-none border-b-2 border-transparent bg-transparent px-4 pb-3 pt-2 font-semibold text-muted-foreground shadow-none transition-none data-[state=active]:border-primary data-[state=active]:text-foreground data-[state=active]:shadow-none"
           >
             Using PostCSS
           </TabsTrigger>
           <TabsTrigger
+            value="frameworks"
+            className="relative h-10 shrink-0 rounded-none border-b-2 border-transparent bg-transparent px-4 pb-3 pt-2 font-semibold text-muted-foreground shadow-none transition-none data-[state=active]:border-primary data-[state=active]:text-foreground data-[state=active]:shadow-none"
+          >
+            Framework Guides
+          </TabsTrigger>
+          <TabsTrigger
             value="cdn"
-            className="relative h-10 rounded-none border-b-2 border-transparent bg-transparent px-4 pb-3 pt-2 font-semibold text-muted-foreground shadow-none transition-none data-[state=active]:border-primary data-[state=active]:text-foreground data-[state=active]:shadow-none"
+            className="relative h-10 shrink-0 rounded-none border-b-2 border-transparent bg-transparent px-4 pb-3 pt-2 font-semibold text-muted-foreground shadow-none transition-none data-[state=active]:border-primary data-[state=active]:text-foreground data-[state=active]:shadow-none"
           >
             Play CDN
           </TabsTrigger>
@@ -117,6 +124,15 @@ export default {
     --primary: 0 0% 98%;
     --primary-foreground: 0 0% 9%;
   }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
 }`} />
           </div>
 
@@ -203,6 +219,123 @@ export default {
           </div>
         </TabsContent>
 
+        <TabsContent value="frameworks" className="mt-6">
+          <p className="mb-6 text-muted-foreground">Framework-specific guides that cover our recommended approach to installing Hash8 UI in a number of popular environments.</p>
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {[
+              {
+                name: "Next.js",
+                desc: "Full-featured React framework with great developer experience.",
+                href: "/docs/installation/nextjs",
+                icon: (
+                  <svg role="img" viewBox="0 0 24 24" fill="currentColor" className="h-10 w-10">
+                    <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm0 22c-5.523 0-10-4.477-10-10S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm-1.8-6.1l6.3-8-2.3-.9-6.3 8 .5.5 1.8.4zM9 17.5h1.5l-4-9H5l4 9z" />
+                  </svg>
+                )
+              },
+              {
+                name: "Laravel",
+                desc: "PHP web application framework with expressive, elegant syntax.",
+                icon: (
+                  <div className="h-10 w-10 rounded-full bg-red-100 flex items-center justify-center text-red-600 font-bold text-lg">L</div>
+                )
+              },
+              {
+                name: "Nuxt",
+                desc: "Intuitive Vue framework for building universal applications.",
+                icon: (
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-10 w-10 text-emerald-500"><path d="M12 2l-9.5 16h19L12 2z" /></svg>
+                )
+              },
+              {
+                name: "SolidJS",
+                desc: "A tool for building simple, performant, and reactive user interfaces.",
+                icon: (
+                  <div className="h-10 w-10 rounded-full bg-sky-100 flex items-center justify-center text-sky-600 font-bold text-lg">S</div>
+                )
+              },
+              {
+                name: "SvelteKit",
+                desc: "The fastest way to build apps of all sizes with Svelte.js.",
+                icon: (
+                  <div className="h-10 w-10 rounded-full bg-orange-100 flex items-center justify-center text-orange-600 font-bold text-lg">Sv</div>
+                )
+              },
+              {
+                name: "Gatsby",
+                desc: "Framework for building static sites with React and GraphQL.",
+                icon: (
+                  <div className="h-10 w-10 rounded-full bg-purple-100 flex items-center justify-center text-purple-600 font-bold text-lg">G</div>
+                )
+              },
+              {
+                name: "Angular",
+                desc: "Platform for building mobile and desktop web applications.",
+                href: "/docs/installation/angular",
+                icon: (
+                  <div className="h-10 w-10 rounded-full bg-red-100 flex items-center justify-center text-red-600 font-bold text-lg">A</div>
+                )
+              },
+              {
+                name: "Ruby on Rails",
+                desc: "Full-stack framework with all the tools needed to build amazing web apps.",
+                icon: (
+                  <div className="h-10 w-10 rounded-full bg-rose-100 flex items-center justify-center text-rose-600 font-bold text-lg">R</div>
+                )
+              },
+              {
+                name: "Remix",
+                desc: "Full stack web framework that lets you focus on the user interface.",
+                icon: (
+                  <div className="h-10 w-10 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-600 font-bold text-lg">Rx</div>
+                )
+              },
+            ].map((framework) => {
+              if (framework.href) {
+                return (
+                  <Link
+                    key={framework.name}
+                    to={framework.href}
+                    className="flex items-start space-x-4 rounded-xl border p-6 hover:bg-muted/50 transition-colors cursor-pointer"
+                  >
+                    <div className="shrink-0">{framework.icon}</div>
+                    <div>
+                      <h4 className="font-bold">{framework.name}</h4>
+                      <p className="mt-1 text-sm text-muted-foreground">{framework.desc}</p>
+                    </div>
+                  </Link>
+                );
+              }
+              return (
+                <div key={framework.name} className="flex items-start space-x-4 rounded-xl border p-6 hover:bg-muted/50 transition-colors cursor-pointer">
+                  <div className="shrink-0">{framework.icon}</div>
+                  <div>
+                    <h4 className="font-bold">{framework.name}</h4>
+                    <p className="mt-1 text-sm text-muted-foreground">{framework.desc}</p>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+
+          <p className="mt-8 mb-4 text-xl font-semibold">Other Frameworks</p>
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {[
+              { name: "Phoenix", icon: "Ph" },
+              { name: "Parcel", icon: "Pa" },
+              { name: "Symfony", icon: "Sy" },
+              { name: "Meteor", icon: "M" },
+              { name: "AdonisJS", icon: "Ad" }
+            ].map(f => (
+              <div key={f.name} className="flex items-center space-x-3 rounded-xl border p-4 hover:bg-muted/50 transition-colors cursor-pointer">
+                <div className="h-8 w-8 rounded-full bg-gray-100 dark:bg-gray-800 flex items-center justify-center text-xs font-bold">{f.icon}</div>
+                <span className="font-medium">{f.name}</span>
+              </div>
+            ))}
+          </div>
+
+        </TabsContent>
+
         <TabsContent value="cdn" className="mt-6 space-y-8">
           <div className="rounded-lg border bg-yellow-50 p-4 text-yellow-900 dark:bg-yellow-900/20 dark:text-yellow-200">
             <strong>Protoyping:</strong> The Play CDN mode is designed for rapid prototyping using the Standalone Bundle.
@@ -250,6 +383,7 @@ export default {
           </div>
         </TabsContent>
       </Tabs>
+
     </div>
   );
 };
