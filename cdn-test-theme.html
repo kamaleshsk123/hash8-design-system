@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Theme API Test</title>
+    <script src="./dist-standalone/hash8-ui.standalone.js"></script>
+    <style>
+        body {
+            padding: 40px;
+            font-family: sans-serif;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .controls {
+            margin-bottom: 20px;
+            display: flex;
+            gap: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Theming API Test</h1>
+
+    <div class="controls">
+        <button onclick="setTheme('light')">Light Mode</button>
+        <button onclick="setTheme('dark')">Dark Mode</button>
+        <button onclick="setColor('blue')">Blue Primary</button>
+        <button onclick="setColor('red')">Red Primary</button>
+        <button onclick="setColor('green')">Green Primary</button>
+        <button onclick="setRadius('0rem')">Square Radius</button>
+        <button onclick="setRadius('1rem')">Round Radius</button>
+    </div>
+
+    <div style="display: flex; gap: 20px; align-items: center;">
+        <H8Card>
+            <H8CardHeader>
+                <H8CardTitle>Themable Component</H8CardTitle>
+                <H8CardDescription>This card should change appearance.</H8CardDescription>
+            </H8CardHeader>
+            <H8CardContent>
+                <H8Button>Primary Button</H8Button>
+                <H8Badge variant="secondary">Secondary Badge</H8Badge>
+            </H8CardContent>
+        </H8Card>
+    </div>
+
+    <script>
+        // Default to system
+        Hash8UI.H8Configure({ mode: 'system' });
+
+        function setTheme(mode) {
+            console.log("Setting theme:", mode);
+            Hash8UI.H8Configure({ mode });
+        }
+
+        function setColor(colorName) {
+            let hsl = '';
+            if (colorName === 'blue') hsl = '221.2 83.2% 53.3%';
+            if (colorName === 'red') hsl = '0 72.2% 50.6%';
+            if (colorName === 'green') hsl = '142.1 76.2% 36.3%';
+
+            console.log("Setting color:", colorName, hsl);
+            Hash8UI.H8Configure({
+                theme: { primary: hsl }
+            });
+        }
+
+        function setRadius(radius) {
+            console.log("Setting radius:", radius);
+            Hash8UI.H8Configure({
+                theme: { radius }
+            });
+        }
+    </script>
+</body>
+
+</html>

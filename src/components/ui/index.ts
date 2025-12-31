@@ -378,6 +378,8 @@ import {
     TooltipProvider,
 } from "./tooltip";
 
+import { configure } from "./configure";
+
 
 // --- Exports (Aliased) ---
 
@@ -419,6 +421,10 @@ export {
 export {
     Badge as H8Badge,
     badgeVariants as H8BadgeVariants,
+};
+
+export {
+    configure as H8Configure
 };
 
 export {
@@ -747,11 +753,11 @@ export {
 };
 
 
-// Auto-mount function for direct HTML usage
-const autoMount = () => {
+// Auto-mount function for direct HTML usage (Dynamic support)
+const setupAutoMount = () => {
     if (typeof window === "undefined" || typeof document === "undefined") return;
 
-    console.log("Hash8UI: Starting Auto-Mount...");
+    console.log("Hash8UI: Initializing Dynamic Auto-Mount...");
 
     const componentMap: Record<string, any> = {
         H8Accordion: Accordion,
@@ -816,57 +822,133 @@ const autoMount = () => {
         H8TooltipProvider: TooltipProvider
     };
 
-    // Helper: Normalize tag names for matching
-    // We will scan the DOM for elements that *somewhat* match our known components.
+    /**
+     * Converts a DOM node to a React Node.
+     * Recursively handles children.
+     */
+    const domToReact = (node: Node, key: number): React.ReactNode => {
+        // 1. Text Nodes
+        if (node.nodeType === Node.TEXT_NODE) {
+            const text = node.textContent;
+            return text ? text : null;
+        }
 
-    // Strategy: Get ALL elements, check their tagName against our map (case-insensitive)
-    const allElements = document.getElementsByTagName("*");
+        // 2. Element Nodes
+        if (node.nodeType === Node.ELEMENT_NODE) {
+            const el = node as Element;
 
-    Array.from(allElements).forEach((el) => {
-        if (el.getAttribute('data-h8-mounted')) return;
-
-        // Check if this element's tag matches any of our known components (case-insensitive)
-        const matchedName = Object.keys(componentMap).find(key => key.toUpperCase() === el.tagName.toUpperCase());
-
-        if (matchedName) {
-            console.log(`Hash8UI: Mounting <${el.tagName}> as ${matchedName}`);
-            el.setAttribute('data-h8-mounted', 'true');
-
-            const Component = componentMap[matchedName];
-
-            // 1. Gather Props
-            const props: Record<string, any> = {};
+            // Gather props
+            const props: Record<string, any> = { key };
             Array.from(el.attributes).forEach((attr) => {
                 if (attr.name === 'data-h8-mounted') return;
-                // Basic type conversions
+                // Basic type conversions (true/false)
                 if (attr.value === "true") props[attr.name] = true;
                 else if (attr.value === "false") props[attr.name] = false;
+                else if (attr.name === "class") props.className = attr.value; // Map class to className
                 else props[attr.name] = attr.value;
             });
 
-            // 2. Handle Children (Text Content only for now to avoid complexity)
-            // If the element has text content but we haven't passed children, use it.
-            if (!props.children && el.textContent && el.textContent.trim().length > 0) {
-                props.children = el.textContent;
-            } else if (el.innerHTML.trim().length > 0) {
-                // For now, simple text.
-                props.children = el.textContent;
+            // Process Children
+            const childNodes = Array.from(el.childNodes);
+            const children = childNodes.map((child, index) => domToReact(child, index)).filter(Boolean);
+
+            if (children.length > 0) {
+                props.children = children;
             }
 
-            // 3. Mount
+            // Check if it's a known H8 component
+            const matchedName = Object.keys(componentMap).find(k => k.toUpperCase() === el.tagName.toUpperCase());
+            if (matchedName) {
+                const Component = componentMap[matchedName];
+                return React.createElement(Component, props);
+            }
+
+            // Standard HTML element (e.g. div, span)
+            return React.createElement(el.tagName.toLowerCase(), props);
+        }
+
+        return null;
+    };
+
+    // Logic to mount a ROOT element (one that lives in the raw DOM)
+    const mountComponent = (el: Element) => {
+        if (el.getAttribute('data-h8-mounted')) return;
+
+        // Check against map
+        const matchedName = Object.keys(componentMap).find(key => key.toUpperCase() === el.tagName.toUpperCase());
+
+        if (matchedName) {
+            console.log(`Hash8UI: Mounting root <${el.tagName}> as ${matchedName}`);
+            el.setAttribute('data-h8-mounted', 'true');
+
+            // Parse the ENTIRE subtree of this root element into React nodes
+            // This allows us to "lift" the DOM tree into React
+            const childNodes = Array.from(el.childNodes);
+            const children = childNodes.map((child, index) => domToReact(child, index)).filter(Boolean);
+
+            const Component = componentMap[matchedName];
+
+            // Gather root props
+            const props: Record<string, any> = {};
+            Array.from(el.attributes).forEach((attr) => {
+                if (attr.name === 'data-h8-mounted') return;
+                if (attr.value === "true") props[attr.name] = true;
+                else if (attr.value === "false") props[attr.name] = false;
+                else if (attr.name === "class") props.className = attr.value;
+                else props[attr.name] = attr.value;
+            });
+
+            if (children.length > 0) {
+                props.children = children;
+            }
+
+            // Mount!
             const root = ReactDOM.createRoot(el);
             root.render(React.createElement(Component, props));
         }
+    };
+
+    // Scan logic
+    const scanAndMount = () => {
+        const allElements = Array.from(document.getElementsByTagName("*"));
+        // Only mount unmounted H8 elements that are NOT descendants of an already mounted component (optional optimization, but React handles it mostly)
+        // Actually, if we mount a root, we detach its DOM children. So nested standard HTML will be fine.
+        // Nested unmounted H8 elements will be converted by domToReact.
+
+        allElements.forEach(el => {
+            const matchedName = Object.keys(componentMap).find(key => key.toUpperCase() === el.tagName.toUpperCase());
+            if (matchedName && !el.getAttribute('data-h8-mounted')) {
+                mountComponent(el);
+            }
+        });
+    };
+
+    scanAndMount();
+    console.log("Hash8UI: Initial scan complete.");
+
+    // 2. Observe for changes
+    const observer = new MutationObserver((mutations) => {
+        let shouldScan = false;
+        mutations.forEach((mutation) => {
+            if (mutation.type === 'childList' && mutation.addedNodes.length > 0) {
+                shouldScan = true;
+            }
+        });
+
+        if (shouldScan) {
+            scanAndMount();
+        }
     });
 
-    console.log("Hash8UI: Auto-Mount Complete.");
+    observer.observe(document.body, { childList: true, subtree: true });
+    console.log("Hash8UI: Observer active.");
 };
 
 // Boot up
 if (typeof window !== "undefined") {
     if (document.readyState === "loading") {
-        document.addEventListener("DOMContentLoaded", autoMount);
+        document.addEventListener("DOMContentLoaded", setupAutoMount);
     } else {
-        setTimeout(autoMount, 0); // Defer to next tick to ensure parsing
+        setTimeout(setupAutoMount, 0); // Defer to next tick to ensure parsing
     }
 }

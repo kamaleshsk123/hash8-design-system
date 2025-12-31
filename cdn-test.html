@@ -37,7 +37,18 @@
             H8Avatar,
             H8AvatarImage,
             H8AvatarFallback,
-            H8Badge
+            H8Badge,
+            H8Dialog,
+            H8DialogTrigger,
+            H8DialogContent,
+            H8DialogHeader,
+            H8DialogTitle,
+            H8DialogDescription,
+            H8DialogFooter,
+            H8Tooltip,
+            H8TooltipContent,
+            H8TooltipProvider,
+            H8TooltipTrigger,
         } = Hash8UI;
 
         // 2. Make React global so Babel's compiled JSX (React.createElement) works
@@ -79,6 +90,38 @@
                             </p>
                         </H8CardContent>
                     </H8Card>
+                    <H8Dialog>
+                        <H8DialogTrigger>
+                            <H8Button variant="outline">Open Simple Dialog</H8Button>
+                        </H8DialogTrigger>
+                        <H8DialogContent>
+                            <H8DialogHeader>
+                                <H8DialogTitle>Edit Profile</H8DialogTitle>
+                                <H8DialogDescription>Make changes to your profile here. Click save when you're done.</H8DialogDescription>
+                            </H8DialogHeader>
+                            <label htmlFor="email" className="text-sm font-medium">
+                                Email
+                            </label>
+                            <H8Input type="email" id="email" placeholder="Email" />
+                            <label htmlFor="email" className="text-sm font-medium">
+                                Name
+                            </label>
+                            <H8Input type="email" id="email" placeholder="Name" />
+                            <H8DialogFooter>
+                                <H8TooltipProvider>
+                                    <H8Tooltip>
+                                        <H8TooltipTrigger asChild>
+                                            <H8Button>Save changes</H8Button>
+                                        </H8TooltipTrigger>
+                                        <H8TooltipContent side="top">
+                                            <p>Save Changes</p>
+                                        </H8TooltipContent>
+                                    </H8Tooltip>
+                                </H8TooltipProvider>
+
+                            </H8DialogFooter>
+                        </H8DialogContent>
+                    </H8Dialog>
                 </div>
             );
         };

@@ -236,6 +236,7 @@ export default {
               {
                 name: "Laravel",
                 desc: "PHP web application framework with expressive, elegant syntax.",
+                href: "/docs/installation/laravel",
                 icon: (
                   <div className="h-10 w-10 rounded-full bg-red-100 flex items-center justify-center text-red-600 font-bold text-lg">L</div>
                 )
@@ -243,6 +244,7 @@ export default {
               {
                 name: "Nuxt",
                 desc: "Intuitive Vue framework for building universal applications.",
+                href: "/docs/installation/nuxt",
                 icon: (
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-10 w-10 text-emerald-500"><path d="M12 2l-9.5 16h19L12 2z" /></svg>
                 )
@@ -257,6 +259,7 @@ export default {
               {
                 name: "SvelteKit",
                 desc: "The fastest way to build apps of all sizes with Svelte.js.",
+                href: "/docs/installation/sveltekit",
                 icon: (
                   <div className="h-10 w-10 rounded-full bg-orange-100 flex items-center justify-center text-orange-600 font-bold text-lg">Sv</div>
                 )
@@ -286,6 +289,7 @@ export default {
               {
                 name: "Remix",
                 desc: "Full stack web framework that lets you focus on the user interface.",
+                href: "/docs/installation/remix",
                 icon: (
                   <div className="h-10 w-10 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-600 font-bold text-lg">Rx</div>
                 )
