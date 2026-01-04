@@ -23,6 +23,7 @@ import DialogDocs from "./pages/docs/components/DialogDocs";
 import TooltipDocs from "./pages/docs/components/TooltipDocs";
 import AccordionDocs from "./pages/docs/components/AccordionDocs";
 import BreadcrumbDocs from "./pages/docs/components/BreadcrumbDocs";
+import DatePickerDocs from "./pages/docs/components/DatePickerDocs";
 
 const queryClient = new QueryClient();
 
@@ -45,6 +46,7 @@ const App = () => (
             <Route path="installation/sveltekit" element={<SvelteKitInstallation />} />
             <Route path="components/accordion" element={<AccordionDocs />} />
             <Route path="components/breadcrumb" element={<BreadcrumbDocs />} />
+            <Route path="components/date-picker" element={<DatePickerDocs />} />
             <Route path="components/button" element={<ButtonDocs />} />
             <Route path="components/card" element={<CardDocs />} />
             <Route path="components/input" element={<InputDocs />} />

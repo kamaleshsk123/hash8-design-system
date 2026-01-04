@@ -35,8 +35,21 @@ export {
   BreadcrumbEllipsis,
   BreadcrumbEllipsis as H8BreadcrumbEllipsis,
 } from './breadcrumb';
+export {
+  Calendar,
+  Calendar as H8Calendar,
+} from './calendar';
+export {
+  Popover,
+  Popover as H8Popover,
+  PopoverTrigger,
+  PopoverTrigger as H8PopoverTrigger,
+  PopoverContent,
+  PopoverContent as H8PopoverContent,
+} from './popover';
 export { Card, CardHeader, CardFooter, CardTitle, CardDescription, CardContent } from './card';
-export { Input } from './input';
+export { Input, Input as H8Input } from './input';
+export { Label, Label as H8Label } from './label';
 export { Badge, badgeVariants } from './badge';
 export { Avatar, AvatarImage, AvatarFallback } from './avatar';
 export {
