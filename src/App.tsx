@@ -21,6 +21,8 @@ import BadgeDocs from "./pages/docs/components/BadgeDocs";
 import AvatarDocs from "./pages/docs/components/AvatarDocs";
 import DialogDocs from "./pages/docs/components/DialogDocs";
 import TooltipDocs from "./pages/docs/components/TooltipDocs";
+import AccordionDocs from "./pages/docs/components/AccordionDocs";
+import BreadcrumbDocs from "./pages/docs/components/BreadcrumbDocs";
 
 const queryClient = new QueryClient();
 
@@ -41,6 +43,8 @@ const App = () => (
             <Route path="installation/nuxt" element={<NuxtInstallation />} />
             <Route path="installation/remix" element={<RemixInstallation />} />
             <Route path="installation/sveltekit" element={<SvelteKitInstallation />} />
+            <Route path="components/accordion" element={<AccordionDocs />} />
+            <Route path="components/breadcrumb" element={<BreadcrumbDocs />} />
             <Route path="components/button" element={<ButtonDocs />} />
             <Route path="components/card" element={<CardDocs />} />
             <Route path="components/input" element={<InputDocs />} />
