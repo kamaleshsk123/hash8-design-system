@@ -37,7 +37,7 @@ const Index = () => {
                 Docs
               </Link>
               <Link
-                to="/docs/components/button"
+                to="/docs/components/accordion"
                 className="text-foreground/60 transition-colors hover:text-foreground/80"
               >
                 Components
@@ -118,7 +118,7 @@ const Index = () => {
                 <Plus className="mr-2 h-4 w-4" /> <Link to="/docs">View Docs</Link>
               </Button>
               <Button variant="outline" size="lg" className="h-12 px-8" asChild>
-                <Link to="/docs/components/button">View Components</Link>
+                <Link to="/docs/components/accordion">View Components</Link>
               </Button>
             </div>
           </div>

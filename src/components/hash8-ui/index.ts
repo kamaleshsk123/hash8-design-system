@@ -10,6 +10,14 @@
 
 export { Button, Button as H8Button, buttonVariants } from './button';
 export {
+  Alert,
+  Alert as H8Alert,
+  AlertTitle,
+  AlertTitle as H8AlertTitle,
+  AlertDescription,
+  AlertDescription as H8AlertDescription,
+} from './alert';
+export {
   Accordion,
   Accordion as H8Accordion,
   AccordionItem,
@@ -47,11 +55,31 @@ export {
   PopoverContent,
   PopoverContent as H8PopoverContent,
 } from './popover';
-export { Card, CardHeader, CardFooter, CardTitle, CardDescription, CardContent } from './card';
+export {
+  Card,
+  Card as H8Card,
+  CardHeader,
+  CardHeader as H8CardHeader,
+  CardFooter,
+  CardFooter as H8CardFooter,
+  CardTitle,
+  CardTitle as H8CardTitle,
+  CardDescription,
+  CardDescription as H8CardDescription,
+  CardContent,
+  CardContent as H8CardContent
+} from './card';
 export { Input, Input as H8Input } from './input';
 export { Label, Label as H8Label } from './label';
 export { Badge, badgeVariants } from './badge';
-export { Avatar, AvatarImage, AvatarFallback } from './avatar';
+export {
+  Avatar,
+  Avatar as H8Avatar,
+  AvatarImage,
+  AvatarImage as H8AvatarImage,
+  AvatarFallback,
+  AvatarFallback as H8AvatarFallback,
+} from './avatar';
 export {
   Dialog,
   DialogPortal,
@@ -70,3 +98,43 @@ export {
   TooltipContent,
   TooltipProvider,
 } from './tooltip';
+export {
+  Table,
+  Table as H8Table,
+  TableHeader,
+  TableHeader as H8TableHeader,
+  TableBody,
+  TableBody as H8TableBody,
+  TableFooter,
+  TableFooter as H8TableFooter,
+  TableHead,
+  TableHead as H8TableHead,
+  TableRow,
+  TableRow as H8TableRow,
+  TableCell,
+  TableCell as H8TableCell,
+  TableCaption,
+  TableCaption as H8TableCaption,
+} from './table';
+export {
+  HoverCard,
+  HoverCard as H8HoverCard,
+  HoverCardTrigger,
+  HoverCardTrigger as H8HoverCardTrigger,
+  HoverCardContent,
+  HoverCardContent as H8HoverCardContent,
+} from './hover-card';
+export {
+  type CarouselApi,
+  Carousel,
+  Carousel as H8Carousel,
+  CarouselContent,
+  CarouselContent as H8CarouselContent,
+  CarouselItem,
+  CarouselItem as H8CarouselItem,
+  CarouselPrevious,
+  CarouselPrevious as H8CarouselPrevious,
+  CarouselNext,
+  CarouselNext as H8CarouselNext,
+} from './carousel';
+export { Checkbox, Checkbox as H8Checkbox } from './checkbox';

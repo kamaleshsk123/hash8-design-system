@@ -24,6 +24,11 @@ import TooltipDocs from "./pages/docs/components/TooltipDocs";
 import AccordionDocs from "./pages/docs/components/AccordionDocs";
 import BreadcrumbDocs from "./pages/docs/components/BreadcrumbDocs";
 import DatePickerDocs from "./pages/docs/components/DatePickerDocs";
+import TableDocs from "./pages/docs/components/TableDocs";
+import HoverCardDocs from "./pages/docs/components/HoverCardDocs";
+import AlertDocs from "./pages/docs/components/AlertDocs";
+import CarouselDocs from "./pages/docs/components/CarouselDocs";
+import CheckboxDocs from "./pages/docs/components/CheckboxDocs";
 
 const queryClient = new QueryClient();
 
@@ -45,8 +50,13 @@ const App = () => (
             <Route path="installation/remix" element={<RemixInstallation />} />
             <Route path="installation/sveltekit" element={<SvelteKitInstallation />} />
             <Route path="components/accordion" element={<AccordionDocs />} />
+            <Route path="components/alert" element={<AlertDocs />} />
+            <Route path="components/carousel" element={<CarouselDocs />} />
+            <Route path="components/checkbox" element={<CheckboxDocs />} />
             <Route path="components/breadcrumb" element={<BreadcrumbDocs />} />
             <Route path="components/date-picker" element={<DatePickerDocs />} />
+            <Route path="components/table" element={<TableDocs />} />
+            <Route path="components/hover-card" element={<HoverCardDocs />} />
             <Route path="components/button" element={<ButtonDocs />} />
             <Route path="components/card" element={<CardDocs />} />
             <Route path="components/input" element={<InputDocs />} />

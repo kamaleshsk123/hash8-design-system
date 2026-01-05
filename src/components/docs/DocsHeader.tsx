@@ -36,7 +36,7 @@ export function DocsHeader() {
               Docs
             </Link>
             <Link
-              to="/docs/components/button"
+              to="/docs/components/accordion"
               className={cn(
                 "transition-colors hover:text-foreground/80",
                 location.pathname.includes("/components")
