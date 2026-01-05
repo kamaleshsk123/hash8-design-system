@@ -29,7 +29,14 @@ import HoverCardDocs from "./pages/docs/components/HoverCardDocs";
 import AlertDocs from "./pages/docs/components/AlertDocs";
 import CarouselDocs from "./pages/docs/components/CarouselDocs";
 import CheckboxDocs from "./pages/docs/components/CheckboxDocs";
+import CommandDocs from "./pages/docs/components/CommandDocs";
+import ComboboxDocs from "./pages/docs/components/ComboboxDocs";
+
+// ... existing imports
+
+
 import CollapsibleDocs from "./pages/docs/components/CollapsibleDocs";
+import SeparatorDocs from "./pages/docs/components/SeparatorDocs";
 
 const queryClient = new QueryClient();
 
@@ -54,6 +61,8 @@ const App = () => (
             <Route path="components/alert" element={<AlertDocs />} />
             <Route path="components/carousel" element={<CarouselDocs />} />
             <Route path="components/checkbox" element={<CheckboxDocs />} />
+            <Route path="components/combobox" element={<ComboboxDocs />} />
+            <Route path="components/command" element={<CommandDocs />} />
             <Route path="components/collapsible" element={<CollapsibleDocs />} />
             <Route path="components/breadcrumb" element={<BreadcrumbDocs />} />
             <Route path="components/date-picker" element={<DatePickerDocs />} />
@@ -65,6 +74,7 @@ const App = () => (
             <Route path="components/badge" element={<BadgeDocs />} />
             <Route path="components/avatar" element={<AvatarDocs />} />
             <Route path="components/dialog" element={<DialogDocs />} />
+            <Route path="components/separator" element={<SeparatorDocs />} />
             <Route path="components/tooltip" element={<TooltipDocs />} />
           </Route>
           <Route path="*" element={<NotFound />} />
