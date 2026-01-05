@@ -137,4 +137,12 @@ export {
   CarouselNext,
   CarouselNext as H8CarouselNext,
 } from './carousel';
+export {
+  Collapsible,
+  Collapsible as H8Collapsible,
+  CollapsibleTrigger,
+  CollapsibleTrigger as H8CollapsibleTrigger,
+  CollapsibleContent,
+  CollapsibleContent as H8CollapsibleContent,
+} from './collapsible';
 export { Checkbox, Checkbox as H8Checkbox } from './checkbox';

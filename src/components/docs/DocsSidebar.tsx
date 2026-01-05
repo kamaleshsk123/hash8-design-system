@@ -21,6 +21,7 @@ const navigation = [
       { title: "Card", href: "/docs/components/card" },
       { title: "Carousel", href: "/docs/components/carousel" },
       { title: "Checkbox", href: "/docs/components/checkbox" },
+      { title: "Collapsible", href: "/docs/components/collapsible" },
       { title: "Date Picker", href: "/docs/components/date-picker" },
       { title: "Dialog", href: "/docs/components/dialog" },
       { title: "Hover Card", href: "/docs/components/hover-card" },

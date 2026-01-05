@@ -29,6 +29,7 @@ import HoverCardDocs from "./pages/docs/components/HoverCardDocs";
 import AlertDocs from "./pages/docs/components/AlertDocs";
 import CarouselDocs from "./pages/docs/components/CarouselDocs";
 import CheckboxDocs from "./pages/docs/components/CheckboxDocs";
+import CollapsibleDocs from "./pages/docs/components/CollapsibleDocs";
 
 const queryClient = new QueryClient();
 
@@ -53,6 +54,7 @@ const App = () => (
             <Route path="components/alert" element={<AlertDocs />} />
             <Route path="components/carousel" element={<CarouselDocs />} />
             <Route path="components/checkbox" element={<CheckboxDocs />} />
+            <Route path="components/collapsible" element={<CollapsibleDocs />} />
             <Route path="components/breadcrumb" element={<BreadcrumbDocs />} />
             <Route path="components/date-picker" element={<DatePickerDocs />} />
             <Route path="components/table" element={<TableDocs />} />
