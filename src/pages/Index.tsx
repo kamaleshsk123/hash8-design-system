@@ -150,7 +150,7 @@ const Index = () => {
 
         {/* Tab Navigation + Theme Selector + Dashboard Preview */}
         <section className="container py-6 md:py-10">
-          <div className="flex items-center justify-between border-b mb-6 pb-0">
+          <div className="flex items-center justify-between  mb-4 pb-0">
             <nav className="flex items-center space-x-6 text-sm overflow-x-auto">
               <Link
                 to="#"
@@ -182,12 +182,12 @@ const Index = () => {
               >
                 Authentication
               </Link>
-              <Link
+              {/* <Link
                 to="#"
                 className="pb-3 text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1"
               >
                 RTL <span className="h-1.5 w-1.5 rounded-full bg-blue-500 inline-block" />
-              </Link>
+              </Link> */}
             </nav>
             <div className="hidden md:flex items-center gap-2 pb-3">
               <Select value={theme} onValueChange={setTheme}>

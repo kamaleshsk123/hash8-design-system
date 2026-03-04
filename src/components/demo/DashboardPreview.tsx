@@ -164,25 +164,30 @@ export function DashboardPreview() {
                 {/* ========== COLUMN 2 — Team, Badges, Slider, Search, Chat ========== */}
                 <div className="col-span-1 flex flex-col gap-4">
                     {/* Team Members — no card wrapper */}
-                    <div className="flex flex-col items-center text-center gap-3 py-4">
-                        <div className="flex -space-x-2">
-                            <Avatar className="h-8 w-8 border-2 border-background">
-                                <AvatarFallback className="text-[10px] bg-muted">SD</AvatarFallback>
-                            </Avatar>
-                            <Avatar className="h-8 w-8 border-2 border-background">
-                                <AvatarFallback className="text-[10px] bg-muted">JL</AvatarFallback>
-                            </Avatar>
-                            <Avatar className="h-8 w-8 border-2 border-background">
-                                <AvatarFallback className="text-[10px] bg-primary text-primary-foreground">+3</AvatarFallback>
-                            </Avatar>
+                    <div className="border border-dashed  rounded-lg">
+                        <div className="flex flex-col items-center text-center gap-3 py-4">
+                            <div className="flex -space-x-2">
+                                <Avatar className="h-8 w-8 border-2 border-background">
+                                    <AvatarFallback className="text-[10px] bg-muted">SD</AvatarFallback>
+                                </Avatar>
+                                <Avatar className="h-8 w-8 border-2 border-background">
+                                    <AvatarFallback className="text-[10px] bg-muted">JL</AvatarFallback>
+                                </Avatar>
+                                <Avatar className="h-8 w-8 border-2 border-background">
+                                    <AvatarFallback className="text-[10px] bg-primary text-primary-foreground">+3</AvatarFallback>
+                                </Avatar>
+                            </div>
+
+                            <p className="text-sm font-semibold">No Team Members</p>
+
+                            <p className="text-[10px] text-muted-foreground leading-relaxed">
+                                Invite your team to collaborate on this project.
+                            </p>
+
+                            <Button size="sm" className="text-xs">
+                                <Plus className="mr-1 h-3 w-3" /> Invite Members
+                            </Button>
                         </div>
-                        <p className="text-sm font-semibold">No Team Members</p>
-                        <p className="text-[10px] text-muted-foreground leading-relaxed">
-                            Invite your team to collaborate on this project.
-                        </p>
-                        <Button size="sm" className="text-xs">
-                            <Plus className="mr-1 h-3 w-3" /> Invite Members
-                        </Button>
                     </div>
 
                     {/* Badges: Syncing / Updating / Loading */}
