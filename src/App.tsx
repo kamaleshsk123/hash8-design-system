@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import { DocsLayout } from "./components/docs/DocsLayout";
+import { ScrollToTop } from "./components/ScrollToTop";
 import DocsIntroduction from "./pages/docs/DocsIntroduction";
 import DocsInstallation from "./pages/docs/DocsInstallation";
 import AngularInstallation from "./pages/docs/frameworks/AngularInstallation";
@@ -47,6 +48,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <ScrollToTop />
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/docs" element={<DocsLayout />}>
