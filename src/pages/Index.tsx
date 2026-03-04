@@ -1,11 +1,39 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
-import { Github, Search, Moon, Sun, Monitor, Command, Plus } from "lucide-react";
+import { Github, Moon, Sun, Plus, RotateCcw } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import { DashboardPreview } from "@/components/demo/DashboardPreview";
-import { Badge } from "@/components/ui/badge";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+
+const THEME_COLORS: Record<string, { primary: string; primaryForeground: string }> = {
+  neutral: { primary: "0 0% 9%", primaryForeground: "0 0% 98%" },
+  blue: { primary: "221.2 83.2% 53.3%", primaryForeground: "210 40% 98%" },
+  green: { primary: "142.1 76.2% 36.3%", primaryForeground: "355.7 100% 97.3%" },
+  orange: { primary: "24.6 95% 53.1%", primaryForeground: "60 9.1% 97.8%" },
+  red: { primary: "0 84.2% 60.2%", primaryForeground: "0 0% 98%" },
+  rose: { primary: "346.8 77.2% 49.8%", primaryForeground: "355.7 100% 97.3%" },
+  violet: { primary: "262.1 83.3% 57.8%", primaryForeground: "210 40% 98%" },
+  yellow: { primary: "47.9 95.8% 53.1%", primaryForeground: "26 83.3% 14.1%" },
+};
 
 const Index = () => {
+  const [theme, setTheme] = useState("neutral");
+
+  const themeStyle = theme !== "neutral"
+    ? {
+      "--primary": THEME_COLORS[theme].primary,
+      "--primary-foreground": THEME_COLORS[theme].primaryForeground,
+    } as React.CSSProperties
+    : undefined;
+
+  const handleReset = () => setTheme("neutral");
+
   return (
     <div className="flex min-h-screen flex-col font-sans">
       {/* Header */}
@@ -93,7 +121,6 @@ const Index = () => {
                 <Moon className="absolute h-4 w-4 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
                 <span className="sr-only">Toggle theme</span>
               </Button>
-              {/* <Button>New Project</Button> */}
             </nav>
           </div>
         </div>
@@ -103,9 +130,6 @@ const Index = () => {
       <main className="flex-1">
         <section className="container relative pb-10 pt-10 md:pt-20 lg:pt-32">
           <div className="mx-auto flex max-w-[980px] flex-col items-center gap-4 text-center">
-            {/* <Badge variant="secondary" className="mb-4 font-mono font-medium rounded-full px-4 py-1.5">
-              ● npx shadcn create →
-            </Badge> */}
             <h1 className="text-3xl font-bold leading-tight tracking-tighter md:text-6xl lg:leading-[1.1]">
               The Foundation for your <br className="hidden md:block" /> Design System
             </h1>
@@ -124,19 +148,74 @@ const Index = () => {
           </div>
         </section>
 
-        {/* Features Preview / Dashboard */}
-        <section className="container py-8 md:py-12 lg:py-24">
-          <DashboardPreview />
-        </section>
+        {/* Tab Navigation + Theme Selector + Dashboard Preview */}
+        <section className="container py-6 md:py-10">
+          <div className="flex items-center justify-between border-b mb-6 pb-0">
+            <nav className="flex items-center space-x-6 text-sm overflow-x-auto">
+              <Link
+                to="#"
+                className="border-b-2 border-foreground pb-3 font-medium text-foreground"
+              >
+                Examples
+              </Link>
+              <Link
+                to="#"
+                className="pb-3 text-muted-foreground hover:text-foreground transition-colors"
+              >
+                Dashboard
+              </Link>
+              <Link
+                to="#"
+                className="pb-3 text-muted-foreground hover:text-foreground transition-colors"
+              >
+                Tasks
+              </Link>
+              <Link
+                to="#"
+                className="pb-3 text-muted-foreground hover:text-foreground transition-colors"
+              >
+                Playground
+              </Link>
+              <Link
+                to="#"
+                className="pb-3 text-muted-foreground hover:text-foreground transition-colors"
+              >
+                Authentication
+              </Link>
+              <Link
+                to="#"
+                className="pb-3 text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1"
+              >
+                RTL <span className="h-1.5 w-1.5 rounded-full bg-blue-500 inline-block" />
+              </Link>
+            </nav>
+            <div className="hidden md:flex items-center gap-2 pb-3">
+              <Select value={theme} onValueChange={setTheme}>
+                <SelectTrigger className="h-8 w-[120px] text-xs">
+                  <SelectValue />
+                </SelectTrigger>
+                <SelectContent>
+                  <div className="px-2 py-1.5 text-xs text-muted-foreground">Theme</div>
+                  {Object.keys(THEME_COLORS).map((key) => (
+                    <SelectItem key={key} value={key} className="text-sm capitalize">
+                      {key.charAt(0).toUpperCase() + key.slice(1)}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+              <Button
+                variant="ghost"
+                size="icon"
+                className="h-8 w-8"
+                onClick={handleReset}
+              >
+                <RotateCcw className="h-3.5 w-3.5" />
+              </Button>
+            </div>
+          </div>
 
-        {/* Additional Sections matching the menu in the image can go here */}
-        <section className="container py-8">
-          <div className="flex items-center justify-center space-x-4 text-sm text-muted-foreground">
-            <Link to="#" className="font-medium hover:text-foreground">Examples</Link>
-            <Link to="#" className="font-medium text-foreground">Dashboard</Link>
-            <Link to="#" className="font-medium hover:text-foreground">Tasks</Link>
-            <Link to="#" className="font-medium hover:text-foreground">Playground</Link>
-            <Link to="#" className="font-medium hover:text-foreground">Authentication</Link>
+          <div style={themeStyle}>
+            <DashboardPreview />
           </div>
         </section>
 
@@ -146,7 +225,7 @@ const Index = () => {
       <footer className="border-t py-6 md:py-0">
         <div className="container flex flex-col items-center justify-between gap-4 md:h-24 md:flex-row">
           <p className="text-center text-sm leading-loose text-muted-foreground md:text-left">
-            Built by{" "}
+            {/* Built by{" "}
             <a
               href="https://hash8.dev"
               target="_blank"
@@ -164,7 +243,8 @@ const Index = () => {
             >
               GitHub
             </a>
-            .
+            . */}
+            Copyright © 2026 Hash8.io
           </p>
         </div>
       </footer>
