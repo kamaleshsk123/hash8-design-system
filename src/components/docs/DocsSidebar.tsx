@@ -23,6 +23,7 @@ const navigation = [
       { title: "Checkbox", href: "/docs/components/checkbox" },
       { title: "Combobox", href: "/docs/components/combobox" },
       { title: "Command", href: "/docs/components/command" },
+      { title: "Context Menu", href: "/docs/components/context-menu" },
       { title: "Collapsible", href: "/docs/components/collapsible" },
       { title: "Date Picker", href: "/docs/components/date-picker" },
       { title: "Dialog", href: "/docs/components/dialog" },

@@ -30,6 +30,7 @@ import AlertDocs from "./pages/docs/components/AlertDocs";
 import CarouselDocs from "./pages/docs/components/CarouselDocs";
 import CheckboxDocs from "./pages/docs/components/CheckboxDocs";
 import CommandDocs from "./pages/docs/components/CommandDocs";
+import ContextMenuDocs from "./pages/docs/components/ContextMenuDocs";
 import ComboboxDocs from "./pages/docs/components/ComboboxDocs";
 
 // ... existing imports
@@ -63,6 +64,7 @@ const App = () => (
             <Route path="components/checkbox" element={<CheckboxDocs />} />
             <Route path="components/combobox" element={<ComboboxDocs />} />
             <Route path="components/command" element={<CommandDocs />} />
+            <Route path="components/context-menu" element={<ContextMenuDocs />} />
             <Route path="components/collapsible" element={<CollapsibleDocs />} />
             <Route path="components/breadcrumb" element={<BreadcrumbDocs />} />
             <Route path="components/date-picker" element={<DatePickerDocs />} />
