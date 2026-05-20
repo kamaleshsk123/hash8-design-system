@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Github, Moon, Sun, Plus, RotateCcw } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { DashboardPreview } from "@/components/demo/DashboardPreview";
+import { DashboardDemo } from "@/components/demo/DashboardDemo";
 import {
   Select,
   SelectContent,
@@ -24,6 +25,7 @@ const THEME_COLORS: Record<string, { primary: string; primaryForeground: string 
 
 const Index = () => {
   const [theme, setTheme] = useState("neutral");
+  const [activeTab, setActiveTab] = useState<"examples" | "dashboard">("examples");
 
   const themeStyle = theme !== "neutral"
     ? {
@@ -152,18 +154,24 @@ const Index = () => {
         <section className="container py-6 md:py-10">
           <div className="flex items-center justify-between  mb-4 pb-0">
             <nav className="flex items-center space-x-6 text-sm overflow-x-auto">
-              <Link
-                to="#"
-                className="border-b-2 border-foreground pb-3 font-medium text-foreground"
+              <button
+                onClick={() => setActiveTab("examples")}
+                className={`pb-3 transition-colors ${activeTab === "examples"
+                    ? "border-b-2 border-foreground font-medium text-foreground"
+                    : "text-muted-foreground hover:text-foreground"
+                  }`}
               >
                 Examples
-              </Link>
-              <Link
-                to="#"
-                className="pb-3 text-muted-foreground hover:text-foreground transition-colors"
+              </button>
+              <button
+                onClick={() => setActiveTab("dashboard")}
+                className={`pb-3 transition-colors ${activeTab === "dashboard"
+                    ? "border-b-2 border-foreground font-medium text-foreground"
+                    : "text-muted-foreground hover:text-foreground"
+                  }`}
               >
                 Dashboard
-              </Link>
+              </button>
               <Link
                 to="#"
                 className="pb-3 text-muted-foreground hover:text-foreground transition-colors"
@@ -182,12 +190,6 @@ const Index = () => {
               >
                 Authentication
               </Link>
-              {/* <Link
-                to="#"
-                className="pb-3 text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1"
-              >
-                RTL <span className="h-1.5 w-1.5 rounded-full bg-blue-500 inline-block" />
-              </Link> */}
             </nav>
             <div className="hidden md:flex items-center gap-2 pb-3">
               <Select value={theme} onValueChange={setTheme}>
@@ -215,7 +217,8 @@ const Index = () => {
           </div>
 
           <div style={themeStyle}>
-            <DashboardPreview />
+            {activeTab === "examples" && <DashboardPreview />}
+            {activeTab === "dashboard" && <DashboardDemo />}
           </div>
         </section>
 
